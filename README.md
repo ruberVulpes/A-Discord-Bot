@@ -5,6 +5,8 @@ A Discord Bot is a Discord Bot that helps properly react to when a member of a s
 
 The motivation of this bot was to have a bot that automatically responds with reactions on a message and posts a gif in response to a message containing multiple `a`'s at the end of a message or a message that is only `'a'`. These are both used in a Discord Server I am in to signal to the others that it is time to play Overwatch.
 
+Also I kinda wanted to make a basic Discord Bot for fun.
+
 ## Support Me 
 Help get me off Heroku free dynos
 
@@ -50,6 +52,7 @@ GIPHY_TOKEN: The Giphy API Token
 
 ## Example
 ![example](readme/example.gif)
+_This is how we signal to each other that it's time to feed on Overwatch_
 
 ## Deployment 
 
