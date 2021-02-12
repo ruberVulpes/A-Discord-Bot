@@ -40,8 +40,8 @@ GIPHY_TOKEN: The Giphy API Token
 * [A Giphy API Key](https://developers.giphy.com/)
     * A basic API key is fine, it's only used to call the [Search Endpoint](https://developers.giphy.com/docs/api/endpoint#search)
 
-* [Install the Dependencies](#-dependency-installation )
-* Set the [Environment Variables](#-environment-variables)
+* [Install the Dependencies](#dependency-installation)
+* Set the [Environment Variables](#environment-variables)
     * `export DISCORD_TOKEN=xxxx`
     * `export GIPHY_TOKEN=xxxx` 
 
