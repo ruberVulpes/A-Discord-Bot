@@ -15,4 +15,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "a-discord-bot-wfox"
           heroku_email: "wfox96@gmail.com"
-          remote_branch: master
+          remote_branch: main
