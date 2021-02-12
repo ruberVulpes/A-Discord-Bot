@@ -8,8 +8,7 @@ The motivation of this bot was to have a bot that automatically responds with re
 ## Support Me 
 Help get me off Heroku free dynos
 
-![https://img.shields.io/badge/Donate-Paypal--Has--Fees-blue.svg?logo=paypal&style=popout](https://www.paypal.com/donate?hosted_button_id=U65R5REYQXAR8)
-
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif))](https://www.paypal.com/donate?hosted_button_id=U65R5REYQXAR8)
 
 ## Dependencies 
 
