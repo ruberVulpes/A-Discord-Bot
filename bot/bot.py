@@ -3,6 +3,7 @@ import re
 import discord
 
 from bot import logger
+from bot.giphy import get_reaction_gif
 
 client = discord.Client()
 
@@ -25,3 +26,4 @@ async def on_message(message: discord.Message):
         logger.debug(f'Reacting to message: {message.content}')
         await message.add_reaction(emoji='🅰️')
         await message.add_reaction(emoji='❗')
+        await message.channel.send(get_reaction_gif())
