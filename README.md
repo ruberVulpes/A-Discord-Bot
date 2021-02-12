@@ -49,9 +49,7 @@ GIPHY_TOKEN: The Giphy API Token
 * `python3 bot.py`
 
 ## Example
-_gif example soon but not yet_
-
-![example](readme/example.png)
+![example](readme/example.gif)
 
 ## Deployment 
 
