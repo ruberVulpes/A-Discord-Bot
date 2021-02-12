@@ -1,6 +1,8 @@
 # A Discord Bot
 A Discord Bot is a Discord Bot that helps properly react to when a member of a server properly informs the other members of the server that it is time to play [Overwatch](https://playoverwatch.com/en-us/).
 
+![Example of the Bot](readme/header-example.gif)
+
 ## Motivation  
 
 The motivation of this bot was to have a bot that automatically responds with reactions on a message and posts a gif in response to a message containing multiple `a`'s at the end of a message or a message that is only `'a'`. These are both used in a Discord Server I am in to signal to the others that it is time to play Overwatch.
@@ -51,7 +53,7 @@ GIPHY_TOKEN: The Giphy API Token
 * `python3 bot.py`
 
 ## Example
-![example](readme/example.gif)
+![Example of the Bot](readme/example.gif)
 _This is how we signal to each other that it's time to feed on Overwatch_
 
 ## Deployment 
