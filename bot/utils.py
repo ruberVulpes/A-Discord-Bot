@@ -39,3 +39,23 @@ def is_long_form_overwatch_time(message: Message) -> bool:
     # Must have I <verb> a
     # Can either say a time via adverb or a digit time with a qualifier
     return contains_a and contains_i and contains_verbs and (contains_adverbs or contains_qualifiers and contains_time)
+
+
+def get_clean_message_content(message: Message) -> str:
+    """
+    Returns a cleaned content string for the message
+    The cleaned content string is lower case without code blocks or inline code
+    :param message: The Message object from Discord
+    :return: str: The cleaned content string
+    """
+    # Code Blocks, Inline Code
+    regex_patterns = [r'```[\s\S]*```', r'`[\s\S]*`']
+    # To Lower Case
+    content: str = message.content.lower()
+
+    # Apply Regex Cleaning
+    for regex_pattern in regex_patterns:
+        for match in re.findall(regex_pattern, content):
+            content.replace(match.string, '')
+
+    return content
