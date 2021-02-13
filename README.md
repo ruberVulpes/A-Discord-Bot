@@ -1,4 +1,4 @@
-# A Discord Bot
+# A Discord Bot ![Powered By Giphy](readme/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif)
 A Discord Bot is a Discord Bot that helps properly react to when a member of a server properly informs the other members of the server that it is time to play [Overwatch](https://playoverwatch.com/en-us/).
 
 ![Example of the Bot](readme/header-example.gif)
