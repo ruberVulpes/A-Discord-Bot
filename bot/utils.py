@@ -6,7 +6,7 @@ from discord import Message
 def is_message_overwatch_time(message: Message) -> bool:
     """
     Returns True/False if the message's content looks like it's for Overwatch
-    :param message: The Message from Discord
+dock    :param message: The Message object from Discord
     :return: bool: True/False if it's time for Overwatch
     """
     message.content = message.content.lower()
@@ -27,7 +27,7 @@ def is_long_form_overwatch_time(message: Message) -> bool:
     I a in 20 minutes
     I can a for 45 mins
     I can a in 7
-    :param message: The Message from Discord
+    :param message: The Message object from Discord
     :return: bool: True/False if message's content looks like it's for Overwatch
     """
     contains_verbs = any(verb in message.content for verb in ['can', 'will', 'able to'])
