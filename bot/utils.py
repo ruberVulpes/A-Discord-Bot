@@ -14,12 +14,12 @@ def is_message_overwatch_time(cleaned_message_content: str) -> bool:
     qualifiers.append(re.search(r'(aa+)\b', cleaned_message_content) is not None)
     qualifiers.append(cleaned_message_content == 'a')
     qualifiers.append(cleaned_message_content == 'i a soon')
-    qualifiers.append(is_long_form_overwatch_time(cleaned_message_content))
+    qualifiers.append(_is_long_form_overwatch_time(cleaned_message_content))
     return any(qualifiers)
 
 
 # Maybe one day this will be done with ML but Today that day isn't
-def is_long_form_overwatch_time(cleaned_message_content: str) -> bool:
+def _is_long_form_overwatch_time(cleaned_message_content: str) -> bool:
     """
     Returns True/False if the message's content looks like it's for Overwatch but more complex
     Tries to match messages like:
