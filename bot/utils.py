@@ -29,7 +29,6 @@ def _is_long_form_overwatch_time(cleaned_message_content: str) -> bool:
     :param cleaned_message_content: The messages cleaned content (can be gotten from utils.get_clean_message_content)
     :return: bool: True/False if message's content looks like it's for Overwatch
     """
-    contains_verbs = any(verb in cleaned_message_content for verb in ['can', 'will', 'able to'])
     contains_a = ' a ' in cleaned_message_content
     # Index safe way of checking to see if message starts with I
     contains_i = cleaned_message_content.find('i') == 0
@@ -38,7 +37,7 @@ def _is_long_form_overwatch_time(cleaned_message_content: str) -> bool:
     contains_time = re.search(r'\d+', cleaned_message_content) is not None
     # Must have I <verb> a
     # Can either say a time via adverb or a digit time with a qualifier
-    return contains_a and contains_i and contains_verbs and (contains_adverbs or contains_qualifiers and contains_time)
+    return contains_a and contains_i and (contains_adverbs or contains_qualifiers and contains_time)
 
 
 def get_clean_message_content(message: Message) -> str:
