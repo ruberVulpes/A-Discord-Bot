@@ -11,19 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.9
-          uses: actions/setup-python@v2
-          with:
-            python-version: 3.9
-            - name: Install dependencies
-            run: |
-              python -m pip install --upgrade pip
-              if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-            - name: Test with pytest
-                run: |
-                  python -m unittest
-                env:
-                  - DISCORD_TOKEN:
-                  - GIPHY_TOKEN:
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Test with pytest
+        run: |
+          python -m unittest
+        env:
+          - DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          - GIPHY_TOKEN: ${{ secrets.GIPHY_TOKEN }}
       - uses: akhileshns/heroku-deploy@v3.10.9
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
