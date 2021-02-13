@@ -17,8 +17,7 @@ async def on_message(message: discord.Message):
     # Ignore any messages from myself just in case
     if message.author == client.user:
         return
-
-    if utils.is_message_overwatch_time(message):
+    if utils.is_message_overwatch_time(utils.get_clean_message_content(message)):
         logger.debug(f'Reacting to message: {message.content}')
         await message.add_reaction(emoji='🅰️')
         await message.add_reaction(emoji='❗')
