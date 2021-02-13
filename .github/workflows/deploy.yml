@@ -22,8 +22,8 @@ jobs:
         run: |
           python -m unittest
         env:
-          - DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-          - GIPHY_TOKEN: ${{ secrets.GIPHY_TOKEN }}
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          GIPHY_TOKEN: ${{ secrets.GIPHY_TOKEN }}
       - uses: akhileshns/heroku-deploy@v3.10.9
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
