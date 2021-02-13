@@ -56,6 +56,6 @@ def get_clean_message_content(message: Message) -> str:
     # Apply Regex Cleaning
     for regex_pattern in regex_patterns:
         for match in re.findall(regex_pattern, content):
-            content.replace(match.string, '')
+            content = content.replace(match, '')
 
     return content
