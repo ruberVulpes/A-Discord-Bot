@@ -1,13 +1,9 @@
-import re
-
 import discord
 
-from bot import logger
+from bot import logger, utils
 from bot.giphy import get_reaction_gif
 
 client = discord.Client()
-
-a_pattern = r'(aa+)\b'
 
 
 @client.event
@@ -22,7 +18,7 @@ async def on_message(message: discord.Message):
     if message.author == client.user:
         return
 
-    if re.search(a_pattern, message.content) or message.content == 'a':
+    if utils.is_message_overwatch_time(message):
         logger.debug(f'Reacting to message: {message.content}')
         await message.add_reaction(emoji='🅰️')
         await message.add_reaction(emoji='❗')
