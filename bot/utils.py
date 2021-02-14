@@ -52,6 +52,7 @@ def get_clean_message_content(message: Message) -> str:
     regex_patterns = [r'```[\s\S]*```', r'`[\s\S]*`', r'^https?:\/\/.*[\r\n]*']
     # To Lower Case
     content: str = message.content.lower()
+    content = content.replace("can't", 'can not')
 
     # Apply Regex Cleaning
     for regex_pattern in regex_patterns:
