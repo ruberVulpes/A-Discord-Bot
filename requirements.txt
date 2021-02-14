@@ -1,2 +1,4 @@
 discord.py
 giphy_client
+scikit-learn
+joblib
