@@ -5,6 +5,8 @@ from joblib import load
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 
+from ml import cutoff
+
 
 def is_message_overwatch_time_basic(cleaned_message_content: str) -> bool:
     """
@@ -32,7 +34,7 @@ def is_message_overwatch_time_linear_regression(cleaned_message_content: str) ->
     classifier: LogisticRegression = load('ml/overwatch_message.model')
     vectorizer: CountVectorizer = load('ml/overwatch_message.vectorizer')
     # > 0 is considered a match, but let's try not to spam
-    return classifier.decision_function(vectorizer.transform([cleaned_message_content])) > .25
+    return classifier.decision_function(vectorizer.transform([cleaned_message_content[:cutoff]])) > .25
 
 
 def get_clean_message_content(message: Message) -> str:
