@@ -26,7 +26,6 @@ def is_message_overwatch_time_basic(cleaned_message_content: str) -> bool:
     return any(qualifiers)
 
 
-# Maybe one day this will be done with ML but Today that day isn't
 def is_message_overwatch_time_linear_regression(cleaned_message_content: str) -> bool:
     """
     Returns True/False if the message's content looks like it's for Overwatch using a linear regression model
