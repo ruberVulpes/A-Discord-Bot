@@ -1,9 +1,16 @@
 import re
 
 from discord import Message
+from joblib import load
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.linear_model import LogisticRegression
+
+import ml
+from bot import logger
+from ml import cutoff
 
 
-def is_message_overwatch_time(cleaned_message_content: str) -> bool:
+def is_message_overwatch_time_basic(cleaned_message_content: str) -> bool:
     """
     Returns True/False if the message's content looks like it's for Overwatch
     :param cleaned_message_content: The messages cleaned content (can be gotten from utils.get_clean_message_content)
@@ -14,30 +21,23 @@ def is_message_overwatch_time(cleaned_message_content: str) -> bool:
     qualifiers.append(re.search(r'(aa+)\b', cleaned_message_content) is not None)
     qualifiers.append(cleaned_message_content == 'a')
     qualifiers.append(cleaned_message_content == 'i a soon')
-    qualifiers.append(_is_long_form_overwatch_time(cleaned_message_content))
+    qualifiers.append(cleaned_message_content == 'overwatch')
+    qualifiers.append(cleaned_message_content == 'o v e r w a t c h')
     return any(qualifiers)
 
 
-# Maybe one day this will be done with ML but Today that day isn't
-def _is_long_form_overwatch_time(cleaned_message_content: str) -> bool:
+def is_message_overwatch_time_linear_regression(cleaned_message_content: str) -> bool:
     """
-    Returns True/False if the message's content looks like it's for Overwatch but more complex
-    Tries to match messages like:
-    I a in 20 minutes
-    I can a for 45 mins
-    I can a in 7
+    Returns True/False if the message's content looks like it's for Overwatch using a linear regression model
     :param cleaned_message_content: The messages cleaned content (can be gotten from utils.get_clean_message_content)
     :return: bool: True/False if message's content looks like it's for Overwatch
     """
-    contains_a = ' a ' in cleaned_message_content
-    # Index safe way of checking to see if message starts with I
-    contains_i = cleaned_message_content.find('i') == 0
-    contains_adverbs = any(adverb in cleaned_message_content for adverb in ['little', 'soon', 'shortly'])
-    contains_qualifiers = any(qualifier in cleaned_message_content for qualifier in ['in', 'for'])
-    contains_time = re.search(r'\d+', cleaned_message_content) is not None
-    # Must have I <verb> a
-    # Can either say a time via adverb or a digit time with a qualifier
-    return contains_a and contains_i and (contains_adverbs or contains_qualifiers and contains_time)
+    classifier: LogisticRegression = load(ml.model_path)
+    vectorizer: CountVectorizer = load(ml.vectorizer_path)
+    decision_result = classifier.decision_function(vectorizer.transform([cleaned_message_content[:cutoff]]))[0]
+    logger.info(f'msg:{cleaned_message_content[:cutoff]}, result:{decision_result}')
+    # > 0 is considered a match, but let's try not to spam
+    return decision_result > .25
 
 
 def get_clean_message_content(message: Message) -> str:
@@ -47,10 +47,11 @@ def get_clean_message_content(message: Message) -> str:
     :param message: The Message object from Discord
     :return: str: The cleaned content string
     """
-    # Code Blocks, Inline Code
-    regex_patterns = [r'```[\s\S]*```', r'`[\s\S]*`']
+    # Code Blocks, Inline Code, URLS
+    regex_patterns = [r'```[\s\S]*```', r'`[\s\S]*`', r'^https?:\/\/.*[\r\n]*']
     # To Lower Case
     content: str = message.content.lower()
+    content = content.replace("can't", 'can not')
 
     # Apply Regex Cleaning
     for regex_pattern in regex_patterns:

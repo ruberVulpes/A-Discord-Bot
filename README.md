@@ -1,5 +1,8 @@
 # A Discord Bot ![Powered By Giphy](readme/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif)
-A Discord Bot is a Discord Bot that helps properly react to when a member of a server properly informs the other members of the server that it is time to play [Overwatch](https://playoverwatch.com/en-us/).
+A Discord Bot is a Discord bot that uses Linear Regression Machine Learning model to help properly react to when a member of a discord server properly informs the other members of the server that it is time to play [Overwatch](https://playoverwatch.com/en-us/).
+
+If the message has an easily regexable or searchable text fragment it's checked first using regex, `str.__contains__`, or equality before falling back to the ML Model to help boost accuracy. 
+Any message the ML Model is the sole source of flagging will be reacted to with the 🤖 emoji.   
 
 ![Example of the Bot](readme/header-example.gif)
 
@@ -18,6 +21,8 @@ Help get me off Heroku free dynos
 
 * [discord.py](https://pypi.org/project/discord.py/)
 * [giphy_client](https://pypi.org/project/giphy_client/)
+* [scikit-learn](https://pypi.org/project/scikit-learn/)
+* [joblib](https://pypi.org/project/joblib/)
 
 #### Dependency Installation 
 
@@ -54,6 +59,7 @@ GIPHY_TOKEN: The Giphy API Token
 
 ## Example
 ![Example of the Bot](readme/example.gif)
+
 _This is how we signal to each other that it's time to feed on Overwatch_
 
 ## Deployment 
