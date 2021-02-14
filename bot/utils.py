@@ -34,8 +34,8 @@ def is_message_overwatch_time_linear_regression(cleaned_message_content: str) ->
     """
     classifier: LogisticRegression = load(ml.model_path)
     vectorizer: CountVectorizer = load(ml.vectorizer_path)
-    decision_result = classifier.decision_function(vectorizer.transform([cleaned_message_content[:cutoff]]))[0]
-    logger.info(f'msg:{cleaned_message_content[:cutoff]}, result:{decision_result}')
+    decision_result = classifier.decision_function(vectorizer.transform([cleaned_message_content]))[0]
+    logger.debug(f'msg:{cleaned_message_content}, result:{decision_result}')
     # > 0 is considered a match, but let's try not to spam
     return decision_result > ml.decision_cutoff
 
