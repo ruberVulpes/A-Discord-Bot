@@ -9,7 +9,7 @@ from ml import cutoff
 
 
 def main(filename: str):
-    df = pd.read_csv('data/filename', names=['message', 'label'])
+    df = pd.read_csv(f'data/{filename}', names=['message', 'label'])
 
     messages = df['message'].values
     labels = df['label'].values
@@ -37,4 +37,4 @@ def main(filename: str):
 
 
 if __name__ == '__main__':
-    main(filename='2020-12-13-to-2021-2-13-data-even.csv')
+    main(filename='dummy.csv')
