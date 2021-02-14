@@ -37,4 +37,4 @@ def main(filename: str):
 
 
 if __name__ == '__main__':
-    main(filename='dummy.csv')
+    main(filename='2020-12-13-to-2021-2-13-data-even.csv')

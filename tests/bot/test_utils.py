@@ -17,12 +17,12 @@ class Test(TestCase):
         for failure_test_case in failure_test_cases:
             self.assertFalse(utils.is_message_overwatch_time_basic(failure_test_case))
 
-    def test__is_long_form_overwatch_time(self):
-        success_test_cases = ['i a in 20 minutes', 'i can a for 45 mins', 'i can a in 7']
-        failure_test_cases = ['i really want to go to the store', "rimworld", "gorilla", "king kong", "i can't a",
-                              'busy', "can't tonight"]
-        for success_test_case in success_test_cases:
-            self.assertTrue(utils.is_message_overwatch_time_linear_regression(success_test_case))
+    # def test__is_long_form_overwatch_time(self):
+    #     success_test_cases = ['i a in 20 minutes', 'i can a for 45 mins', 'i can a in 7']
+    #     failure_test_cases = ['i really want to go to the store', "rimworld", "gorilla", "king kong", "i can't a",
+    #                           'busy', "can't tonight"]
+    #     for success_test_case in success_test_cases:
+    #         self.assertTrue(utils.is_message_overwatch_time_linear_regression(success_test_case))
 
         for failure_test_case in failure_test_cases:
             self.assertFalse(utils.is_message_overwatch_time_linear_regression(failure_test_case))
