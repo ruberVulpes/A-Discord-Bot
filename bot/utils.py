@@ -37,7 +37,7 @@ def is_message_overwatch_time_linear_regression(cleaned_message_content: str) ->
     decision_result = classifier.decision_function(vectorizer.transform([cleaned_message_content[:cutoff]]))[0]
     logger.info(f'msg:{cleaned_message_content[:cutoff]}, result:{decision_result}')
     # > 0 is considered a match, but let's try not to spam
-    return decision_result > .25
+    return decision_result > ml.decision_cutoff
 
 
 def get_clean_message_content(message: Message) -> str:
