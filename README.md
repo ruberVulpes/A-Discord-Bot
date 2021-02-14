@@ -21,6 +21,8 @@ Help get me off Heroku free dynos
 
 * [discord.py](https://pypi.org/project/discord.py/)
 * [giphy_client](https://pypi.org/project/giphy_client/)
+* [scikit-learn](https://pypi.org/project/scikit-learn/)
+* [joblib](https://pypi.org/project/joblib/)
 
 #### Dependency Installation 
 
