@@ -67,6 +67,11 @@ anti_spam_wait_time = timedelta(hours=6)
 
 
 def is_spam(message: Message) -> bool:
+    """
+    Returns True/False if the message is too soon to be reacted to with a gif
+    :param message: The Message object from Discord
+    :return: bool: Is the message too soon to respond to prevent spam
+    """
     dict_key = f'{message.guild.id}-{message.channel.id}'
     if last_message_sent := last_messages_sent.get(dict_key):
         # if now < 2 hours ago + 4 hour wait time
