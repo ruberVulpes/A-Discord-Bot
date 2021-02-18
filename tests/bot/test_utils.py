@@ -1,9 +1,20 @@
-from collections import namedtuple
+from dataclasses import dataclass
 from unittest import TestCase
 
 from bot import utils
 
-TestMessageObject = namedtuple('TestMessageObject', 'content')
+
+@dataclass
+class IDName:
+    id: str = '1234'
+    name: str = 'my-name'
+
+
+@dataclass
+class TestMessage:
+    content: str = 'content'
+    guild: IDName = IDName(name='my-guild')
+    channel: IDName = IDName(name='my-channel')
 
 
 class Test(TestCase):
@@ -30,5 +41,19 @@ class Test(TestCase):
     def test_get_clean_message_content(self):
         test_strings = {'```a```': '', 'a': 'a', '`a`': '', "```python print('Hello World!')```": '',
                         'https://google.com': '', 'https://gph.is/st/Y6a9pWQ': ''}
+        test_message_object = TestMessage()
         for function_input, expected_output in test_strings.items():
-            self.assertEqual(utils.get_clean_message_content(TestMessageObject(function_input)), expected_output)
+            test_message_object.content = function_input
+            self.assertEqual(utils.get_clean_message_content(test_message_object), expected_output)
+
+    def test_is_spam(self):
+
+        def _test_is_spam(test_message: TestMessage):
+            self.assertFalse(utils.is_spam(test_message))
+            self.assertTrue(utils.is_spam(test_message))
+
+        _test_is_spam(TestMessage())
+        # Test New Guild
+        _test_is_spam(TestMessage(guild=IDName('my-new-guild-id')))
+        # Test Old Guild, but different channel
+        _test_is_spam(TestMessage(channel=IDName('my-new-channel-id')))
