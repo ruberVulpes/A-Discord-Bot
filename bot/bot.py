@@ -32,4 +32,8 @@ async def on_message(message: discord.Message):
         await message.add_reaction(emoji='❗')
         if ml_match and not basic_match:
             await message.add_reaction(emoji='🤖')
-        await message.channel.send(get_reaction_gif())
+        # Utilize message cool down
+        if utils.is_spam(message):
+            await message.add_reaction(emoji='⏳')
+        else:
+            await message.channel.send(get_reaction_gif())

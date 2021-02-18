@@ -1,4 +1,6 @@
 import re
+from datetime import datetime, timedelta
+from typing import Dict
 
 from discord import Message
 from joblib import load
@@ -7,7 +9,6 @@ from sklearn.linear_model import LogisticRegression
 
 import ml
 from bot import logger
-from ml import cutoff
 
 
 def is_message_overwatch_time_basic(cleaned_message_content: str) -> bool:
@@ -59,3 +60,24 @@ def get_clean_message_content(message: Message) -> str:
             content = content.replace(match, '')
 
     return content
+
+
+last_messages_sent: Dict[str, datetime] = dict()
+anti_spam_wait_time = timedelta(hours=6)
+
+
+def is_spam(message: Message) -> bool:
+    """
+    Returns True/False if the message is too soon to be reacted to with a gif
+    :param message: The Message object from Discord
+    :return: bool: Is the message too soon to respond to prevent spam
+    """
+    dict_key = f'{message.guild.id}-{message.channel.id}'
+    if last_message_sent := last_messages_sent.get(dict_key):
+        # if now < 2 hours ago + 4 hour wait time
+        # Too Soon, don't spam
+        if datetime.now() < last_message_sent + anti_spam_wait_time:
+            return True
+    # First message since bot startup or long enough to send again
+    last_messages_sent[dict_key] = datetime.now()
+    return False
