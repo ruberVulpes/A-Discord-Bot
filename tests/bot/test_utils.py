@@ -1,20 +1,7 @@
-from dataclasses import dataclass
 from unittest import TestCase
 
 from bot import utils
-
-
-@dataclass
-class IDName:
-    id: str = '1234'
-    name: str = 'my-name'
-
-
-@dataclass
-class TestMessage:
-    content: str = 'content'
-    guild: IDName = IDName(name='my-guild')
-    channel: IDName = IDName(name='my-channel')
+from tests import TestMessage, IDName
 
 
 class Test(TestCase):
