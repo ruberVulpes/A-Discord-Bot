@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import Column, Integer, DateTime
+from sqlalchemy import Column, Integer, DateTime, BigInteger
 from sqlalchemy.ext.declarative import declarative_base
 
 from db import engine
@@ -11,8 +11,8 @@ Base = declarative_base()
 class MessageHistory(Base):
     __tablename__ = "message-history"
     id = Column(Integer, primary_key=True)
-    guild_id = Column(Integer)
-    channel_id = Column(Integer)
+    guild_id = Column(BigInteger)
+    channel_id = Column(BigInteger)
     last_posted = Column(DateTime, default=datetime.now)
 
     def __repr__(self):
