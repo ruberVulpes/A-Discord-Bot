@@ -2,3 +2,5 @@ discord.py
 giphy_client
 scikit-learn
 joblib
+psycopg2
+sqlalchemy
