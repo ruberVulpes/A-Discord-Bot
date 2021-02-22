@@ -33,7 +33,7 @@ jobs:
     - name: Test with unittest
       run: |
         pip install coverage
-        coverage -m unittest
+        coverage run -m unittest
       env:
         DISCORD_TOKEN: my-secret
         GIPHY_TOKEN: my-secret
