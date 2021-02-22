@@ -1,6 +1,7 @@
 # A Discord Bot ![Powered By Giphy](readme/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif)
 
 <!---badges-->
+[![Python39](https://img.shields.io/badge/python-3.9-blue)](https://www.python.org/downloads/)
 [![Tests](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/python-tests.yml/badge.svg)](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/python-tests.yml)
 [![CodeQL](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/codeql-analysis.yml)
 [![codecov](https://codecov.io/gh/ruberVulpes/A-Discord-Bot/branch/main/graph/badge.svg?token=4B7KKOJNGS)](https://codecov.io/gh/ruberVulpes/A-Discord-Bot)
