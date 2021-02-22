@@ -31,7 +31,12 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with unittest
       run: |
-        python -m unittest
+        pip install coverage
+        coverage -m unittest
       env:
         DISCORD_TOKEN: my-secret
         GIPHY_TOKEN: my-secret
+    - name: "Upload coverage to Codecov"
+      uses: codecov/codecov-action@v1
+      with:
+        fail_ci_if_error: true
