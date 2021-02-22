@@ -13,9 +13,8 @@ class Test(IsolatedAsyncioTestCase):
         session.query(MessageHistory).delete()
 
     # noinspection PyUnusedLocal
-    # skipcq: PYL-W0613
     @patch('bot.bot.get_reaction_gif', side_effect=lambda: '')
-    async def test_on_message(self, mock_get_reaction_gif: Callable):
+    async def test_on_message(self, mock_get_reaction_gif: Callable):  # skipcq: PYL-W0613
         await on_message(TestMessage(content=''))
         await on_message(TestMessage(content='a'))
         await on_message(TestMessage(author=None))
