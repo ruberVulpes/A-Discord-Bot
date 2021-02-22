@@ -8,11 +8,20 @@ class IDName:
     name: str = 'my-name'
 
 
+class Channel(IDName):
+    async def send(self, *args, **kwargs):
+        pass
+
+
 @dataclass
 class TestMessage:
     content: str = 'content'
     guild: IDName = IDName(name='my-guild')
-    channel: IDName = IDName(name='my-channel')
+    channel: IDName = Channel(name='my-channel')
+    author: IDName = IDName(name='some-user')
+
+    async def add_reaction(self,*args, **kwargs):
+        pass
 
 
 @dataclass
