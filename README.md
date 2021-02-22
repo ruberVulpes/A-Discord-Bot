@@ -1,4 +1,6 @@
 # A Discord Bot ![Powered By Giphy](readme/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif)
+[![Tests](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/python-tests.yml/badge.svg)](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/python-tests.yml) [![CodeQL](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/codeql-analysis.yml)
+
 A Discord Bot is a Discord bot that uses Linear Regression Machine Learning model to help properly react to when a member of a discord server properly informs the other members of the server that it is time to play [Overwatch](https://playoverwatch.com/en-us/).
 
 If the message has an easily regexable or searchable text fragment it's checked first using regex, `str.__contains__`, or equality before falling back to the ML Model to help boost accuracy. 
