@@ -35,6 +35,8 @@ Help get me off Heroku free dynos
 ```
 DISCORD_TOKEN: The Bot's Discord Token
 GIPHY_TOKEN: The Giphy API Token 
+DATABASE_URL: [Optional] The URL to the database to store posting history to prevent spam. 
+    Defaults to sqlite in memory if blank
 ``` 
 
 ## How to Run
