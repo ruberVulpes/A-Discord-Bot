@@ -5,6 +5,7 @@
 [![Tests](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/python-tests.yml/badge.svg)](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/python-tests.yml)
 [![CodeQL](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/codeql-analysis.yml)
 [![codecov](https://codecov.io/gh/ruberVulpes/A-Discord-Bot/branch/main/graph/badge.svg?token=4B7KKOJNGS)](https://codecov.io/gh/ruberVulpes/A-Discord-Bot)
+[![Deploy](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/deploy.yml/badge.svg)](https://github.com/ruberVulpes/A-Discord-Bot/actions/workflows/deploy.yml)
 <!---badges-->
 
 A Discord Bot is a Discord bot that uses Linear Regression Machine Learning model to help properly react to when a member of a discord server properly informs the other members of the server that it is time to play [Overwatch](https://playoverwatch.com/en-us/).
