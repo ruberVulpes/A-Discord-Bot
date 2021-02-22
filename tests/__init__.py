@@ -20,7 +20,7 @@ class TestMessage:
     channel: IDName = Channel(name='my-channel')
     author: IDName = IDName(name='some-user')
 
-    async def add_reaction(self,*args, **kwargs):
+    async def add_reaction(self, *args, **kwargs):
         pass
 
 
