@@ -1,4 +1,4 @@
-# A Discord Bot ![Powered By Giphy](readme/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif)
+# A Discord Bot <img align="right"  src="readme/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif" alt="Powered by Giphy"> 
 
 <!---badges-->
 [![Python39](https://img.shields.io/badge/python-3.9-blue)](https://www.python.org/downloads/)
