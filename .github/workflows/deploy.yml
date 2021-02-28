@@ -24,9 +24,8 @@ jobs:
         env:
           DISCORD_TOKEN: my-secret
           GIPHY_TOKEN: my-secret
-      - uses: akhileshns/heroku-deploy@v3.10.9
+      - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "a-discord-bot-wfox"
           heroku_email: "wfox96@gmail.com"
-          remote_branch: main
